@@ -1,0 +1,20 @@
+<div>
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+        <label>movie name</label>
+        <input type="text" formControlName="name"/>
+        <div *ngIf="f['name'].touched&&f['name'].invalid">
+            <small *ngIf="f['name'].errors?.['required']">name is required and also the alphabets </small>
+            <small *ngIf="f['name'].errors?.['patterns']">ONLY ALPHABETS  is required</small>
+        </div>
+        <label>movie release date</label>
+        <input type="date" formControlName="date"/>
+        <div *ngIf="f['name'].touched&&f['name'].invalid">
+            <small *ngIf="f['name'].errors?.['required']">date  is required</small>
+        </div>
+        <button type="submit" [disabled]="movieForm.invalid">
+            submit
+        </button>
+
+        
+    </form>
+</div>
