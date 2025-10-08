@@ -38,7 +38,7 @@ describe('Movieform', () => {
     const name=component.movieForm.get('name');
     name?.setValue('shubham1234');
     expect(name?.valid).toBeFalse();
-    expect(name?.errors?.['required']).toBeTruthy();
+    expect(name?.errors?.['pattern']).toBeTruthy();
     name?.setValue('shubham');
     expect(name?.valid).toBeTrue();
     

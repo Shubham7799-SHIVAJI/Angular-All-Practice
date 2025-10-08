@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ecommerce-project": {
+    "forms": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -14,6 +14,9 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -23,12 +26,7 @@
             ],
             "styles": [
               "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
           },
           "configurations": {
             "production": {
@@ -58,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ecommerce-project:build:production"
+              "buildTarget": "forms:build:production"
             },
             "development": {
-              "buildTarget": "ecommerce-project:build:development"
+              "buildTarget": "forms:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,6 +70,10 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
@@ -88,6 +90,6 @@
     }
   },
   "cli": {
-    "analytics": "0bc3d40e-89da-461e-a99f-4143a1b0a8be"
+    "analytics": "6abd18bc-d768-490e-8216-1a30e5d200e1"
   }
 }
